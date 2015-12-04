@@ -1,0 +1,35 @@
+<div class="view">
+	<h3>{{item.name}}</h3>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<div class="well files" ng-if="item.bitstreams.length > 0">
+				<h4>Files</h4>
+				<ul class="bitstreams list-unstyled">
+					<li ng-click="setShownBitstream(bitstream)" ng-repeat="bitstream in item.bitstreams"><a>{{bitstream.name}}</a></li>
+				</ul>
+			</div>
+
+			<div class="authors" ng-if="item.creators.length > 0">
+				<h4>Author</h4>
+				<ul class="creators list-unstyled">
+					<li ng-repeat="creator in item.creators">{{creator}}</li>	
+				</ul>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<p>{{item.abstract}}</p>
+		</div>
+		<div class="col-md-3">
+			<div class="date" ng-if="item.date">
+				<h4>Date</h4>
+				<span>{{item.date}}</span>
+			</div>
+			<div class="subjects" ng-if="item.subjects.length > 0">
+				<h4>Subjects</h4>
+				<span ng-repeat="subject in item.subjects" class="subject"><a class="badge">{{subject}}</a><span>
+			</div>
+		</div>
+	</div>
+	
+</div>

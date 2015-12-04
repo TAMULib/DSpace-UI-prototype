@@ -1,0 +1,18 @@
+<div class="sidebar hidden-xs" ng-controller="SidebarController">
+	<div ng-if="!sidebar.off">
+		<h3>Sidebar</h3>
+		<h5>Global Options</h5>
+		<ul>
+			<li>General Sidebar Item 1</li>
+			<li>General Sidebar Item 2 test</li>
+		</ul>
+		<h5>{{sidebar.title}}</h5>
+		<ul>
+			<li ng-repeat="sidebarItem in sidebar.list">
+				<a href="{{sidebarItem.url}}">{{sidebarItem.name}}</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+

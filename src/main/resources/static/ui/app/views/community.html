@@ -1,0 +1,25 @@
+<div class="view">
+
+	<h1>{{community.name}}</h1>
+	
+	<p ng-bind-html="renderHtml(community.shortDescription)"></p>
+
+	<p ng-bind-html="renderHtml(community.introductoryText)"></p>
+
+	<h2 ng-if="community.subcommunities.length > 0">Sub-Communities</h2>
+
+	<ul>
+		<li ng-repeat="subcommunity in community.subcommunities"><a href="communities/{{subcommunity.id}}">{{subcommunity.name}}</a></li>
+	</ul>
+
+	<h2 ng-if="community.collections.length > 0">Collections</h2>
+
+	<ul>
+		<li ng-repeat="subcollection in community.collections"><a href="collections/{{subcollection.id}}">{{subcollection.name}}</a></li>
+	</ul>
+	
+	<p ng-bind-html="renderHtml(community.copyrightText)"></p>
+	
+	
+
+</div>

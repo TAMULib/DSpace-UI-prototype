@@ -1,0 +1,14 @@
+{
+  "name": "seedapp",
+  "description": "AngularJS Seed App",
+  "version": "0.0.1",
+  "homepage": "https://github.com/TAMULib/angularSeedApp",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "core": "git@github.com:TAMULib/TAMU-UI-Core.git"
+  },
+  "resolutions": {
+    "angular": "1.4.x"
+  }
+}

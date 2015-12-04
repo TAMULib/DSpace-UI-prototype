@@ -1,0 +1,19 @@
+<div class="breadcrumb-wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<ul class="breadcrumb hidden-xs">
+					<li>
+						<a href="home">Home</a>
+					</li>
+					<li ng-repeat="breadcrumb in breadcrumbs.list">
+						<a href="{{breadcrumb.url}}">{{breadcrumb}}</a>
+					</li>
+					<li>
+						{{current}}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

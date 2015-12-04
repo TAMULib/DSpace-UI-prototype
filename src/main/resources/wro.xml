@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<groups xmlns="http://www.isdc.ro/wro">
+
+    <group name="app">
+        <css>/static/theming.scss</css>
+        <css>/static/ui/app/bower_components/core/app/resources/styles/sass/main.scss</css>
+        <css>/static/ui/app/resources/styles/sass/app.scss</css>
+    </group>
+    
+</groups>

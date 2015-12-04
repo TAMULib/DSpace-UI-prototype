@@ -1,0 +1,11 @@
+<div class="view">
+	<h1>{{collection.name}}</h1>
+		
+	<button ng-if="(collection.numberItems > 100) && (offset != 0)" class="btn btn-default btn-xs" ng-click="loadResults(offset-100)">Previous 100</button>
+	<span>Viewing items {{(offset + 1)}} through {{(offset + (collection.numberItems < 100 ? collection.numberItems : 100 ))}} of {{collection.numberItems}}</span>
+	<button ng-if="collection.numberItems > 100" class="btn btn-default btn-xs" ng-click="loadResults(offset+100)">Next 100</button>
+	
+	<ul >
+		<li ng-repeat="item in collection.items"><a href="items/{{item.id}}">{{item.name}}</a></li>
+	</ul>
+</div>

@@ -1,0 +1,7 @@
+$primary: {primary};
+
+$secondary: {secondary};
+
+$linkColor: {linkcolor};
+
+$baseFontSize: {basefontsize};

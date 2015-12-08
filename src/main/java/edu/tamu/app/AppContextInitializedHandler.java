@@ -15,6 +15,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
+import edu.tamu.app.SSLUtil;
 import edu.tamu.framework.CoreContextInitializedHandler;
 import edu.tamu.framework.model.repo.SymlinkRepo;
 
@@ -41,8 +42,14 @@ class AppContextInitializedHandler extends CoreContextInitializedHandler {
     }
 
     @Override
-    protected void after(ContextRefreshedEvent event) {  
+    protected void after(ContextRefreshedEvent event) { 
         
+        // use when ssl not available
+    	try {
+    		SSLUtil.turnOffSslChecking();    	
+    	}
+    	catch(Exception e) {
+    		System.out.println("\nUnable to disable SSL checking.\n");
+    	}
     }
-    
 }

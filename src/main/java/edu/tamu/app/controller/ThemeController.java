@@ -26,6 +26,7 @@ import java.util.Map.Entry;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -53,12 +54,15 @@ public class ThemeController
 	
     @Value("${app.ui.path}")
     private String uiPath;
-	
+    
+    @Autowired
+    private ResourceLoader resourceLoader;
+    
 	@ApiMapping("/update")
 	public ApiResponse update(@Data String data) throws IOException {
 		JsonNode themeValues = objectMapper.readTree(data).get("themeValues");
 		
-		Path path = Paths.get("src/main/resources/static/theming.scss.template");
+		Path path = Paths.get(resourceLoader.getResource("classpath:static/theming.scss.template").getURI());
 		Charset charset = StandardCharsets.UTF_8;
 		String content = new String(Files.readAllBytes(path),charset);
 
@@ -73,7 +77,8 @@ public class ThemeController
 		}
 		
 		try {
-			File file = new File("src/main/resources/static/theming.scss");
+		    
+			File file = new File(resourceLoader.getResource("classpath:static/theming.scss").getURI());
 
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter bw = new BufferedWriter(fw);

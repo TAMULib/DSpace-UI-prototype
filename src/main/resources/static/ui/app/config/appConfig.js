@@ -5,7 +5,9 @@ var appConfig = {
 	'allowAnonymous': true,
 
 	'authService': window.location.protocol + '//' + window.location.host + '/mockauth',
-	'webService': window.location.protocol + '//' + window.location.host, 
+	'webService': window.location.protocol + '//' + window.location.host + '/dspace-ui',
+
+    'webServiceWithoutBase': window.location.protocol + '//' + window.location.host,
 
 	'storageType': 'session',
 	

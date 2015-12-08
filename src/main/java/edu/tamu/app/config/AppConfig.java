@@ -65,7 +65,7 @@ public class AppConfig extends CoreWebAppConfig {
     }
     
     @Bean
-    FilterRegistrationBean webResourceOptimizer(Environment env) {
+    public FilterRegistrationBean webResourceOptimizer(Environment env) {
     	FilterRegistrationBean fr = new FilterRegistrationBean();
     	ConfigurableWroFilter filter = new ConfigurableWroFilter();
 		Properties props = buildWroProperties(env);
@@ -73,12 +73,14 @@ public class AppConfig extends CoreWebAppConfig {
 		filter.setWroManagerFactory(new Wro4jCustomXmlModelManagerFactory(props));
     	filter.setProperties(props);
     	fr.setFilter(filter);
-    	fr.addUrlPatterns("/wro/*");
+    	fr.addUrlPatterns(base + "/wro/*");
     	return fr;
     }
 
-    private static final String[] OTHER_WRO_PROP = new String[] { ConfigurableProcessorsFactory.PARAM_PRE_PROCESSORS,
-    		ConfigurableProcessorsFactory.PARAM_POST_PROCESSORS };
+    private static final String[] OTHER_WRO_PROP = new String[] { 
+            ConfigurableProcessorsFactory.PARAM_PRE_PROCESSORS,
+    		ConfigurableProcessorsFactory.PARAM_POST_PROCESSORS 
+    };
 
     private Properties buildWroProperties(Environment env) {
     	Properties prop = new Properties();
